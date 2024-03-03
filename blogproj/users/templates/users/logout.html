@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="content-section">
+        <form id="logoutForm" method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Hello</legend>
+                <h4>You just logged out</h4>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="button" id="loginAgainBtn">Login Again</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Use jQuery to handle the button click and submit the form
+        $(document).ready(function() {
+            $('#loginAgainBtn').click(function() {
+                $('#logoutForm').submit();
+            });
+        });
+    </script>
+{% endblock content %}
