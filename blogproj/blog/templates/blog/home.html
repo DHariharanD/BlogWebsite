@@ -2,6 +2,7 @@
 {% block content %}
 
     {% for posts in posts %}
+    
         <article class="media content-section">
             <img class="rounded-cirlce article-img" src="{{ posts.author.profile.image.url }}" alt="">
             <div class="media-body">
@@ -10,9 +11,11 @@
                 <small class="text-muted">{{ posts.date_posted }}</small>
               </div>
               <h2><a class="article-title" href="{% url 'blog-detail' posts.id %}">{{ posts.title }}</a></h2>
-              <p class="article-content">{{ posts.content }}</p>
+              <p class="article-content">{{ posts.content|truncatewords:20 }}</p>
             </div>
             <br>
           </article>
+          
     {% endfor  %}
+        
 {% endblock content %}

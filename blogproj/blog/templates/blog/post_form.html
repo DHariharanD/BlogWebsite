@@ -1,14 +1,47 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
+    <style>
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 4px;
+            transition: all 0.5s ease; /* Add transition for animations */
+        }
+        .content-section:hover {
+            transform: scale(1.02); /* Add scale animation on hover */
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: center; /* Align labels to the center */
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; /* Make input boxes of equal length */
+        }
+    </style>
+
     <div class="content-section">
         <form action="" method="post">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">New Post</legend>
-                {{ form|crispy }}
+                <label for="id_title">Title</label>  <!-- Add label for title -->
+                {{ form.title }}
+                <label for="id_content">Content</label>  <!-- Add label for content -->
+                {{ form.content }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Post</button>
