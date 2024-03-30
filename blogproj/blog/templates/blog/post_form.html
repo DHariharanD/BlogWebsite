@@ -28,7 +28,7 @@
             margin-bottom: 5px;
             text-align: center; /* Align labels to the center */
         }
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%; /* Make input boxes of equal length */
         }
     </style>
@@ -42,6 +42,21 @@
                 {{ form.title }}
                 <label for="id_content">Content</label>  <!-- Add label for content -->
                 {{ form.content }}
+                <label for="id_categories">Categories</label>
+                <select name="categories" id="id_categories" class="form-control" multiple>
+                    <option value="Science">Science</option>
+                    <option value="General">General</option>
+                    <option value="Space">Space</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Art">Art</option>
+                    <option value="Music">Music</option>
+                    <option value="Movies">Movies</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Food">Food</option>
+                    <option value="Health & Fitness">Health & Fitness</option>
+                    <option value="Space">Fashion</option>
+                </select>
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Post</button>
